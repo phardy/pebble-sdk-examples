@@ -86,6 +86,46 @@ static void in_dropped_handler(AppMessageResult reason, void *context) {
 
 static void out_failed_handler(DictionaryIterator *failed, AppMessageResult reason, void *context) {
   APP_LOG(APP_LOG_LEVEL_DEBUG, "App Message Failed to Send!");
+  switch (reason) {
+  case APP_MSG_SEND_TIMEOUT:
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_SEND_TIMEOUT");
+    break;
+  case APP_MSG_SEND_REJECTED:
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_SEND_REJECTED");
+    break;
+  case APP_MSG_NOT_CONNECTED:
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_NOT_CONNECTED");
+    break;
+  case APP_MSG_APP_NOT_RUNNING:
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_APP_NOT_RUNNING");
+    break;
+  case APP_MSG_INVALID_ARGS:
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_INVALID_ARGS");
+    break;
+  case APP_MSG_BUSY:
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_BUSY");
+    break;
+  case APP_MSG_BUFFER_OVERFLOW:
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_BUFFER_OVERFLOW");
+    break;
+  case APP_MSG_ALREADY_RELEASED:
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_ALREADY_RELEASED");
+    break;
+  case APP_MSG_CALLBACK_ALREADY_REGISTERED:
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_CALLBACK_ALREADY_REGISTERED");
+    break;
+  case APP_MSG_CALLBACK_NOT_REGISTERED:
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_CALLBACK_NOT_REGISTERED");
+    break;
+  case APP_MSG_OUT_OF_MEMORY:
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_OUT_OF_MEMORY");
+    break;
+  case APP_MSG_INTERNAL_ERROR:
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "APP_MSG_INTERNAL_ERROR");
+    break;
+  default:
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "Unknown error");
+  }
 }
 
 static void app_message_init(void) {
